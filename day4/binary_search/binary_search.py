@@ -46,7 +46,7 @@ class BinarySearch:
             loops = loops - 1 if not loops == 0 else loops
             return {'count': loops, 'index': search_item_index}
         elif len(items) == 2 and search_item not in items:
-            return {'count': loops, 'index': search_item_index}
+            return {'count': loops - 1, 'index': search_item_index}
 
         middle = len(items) / 2
         first_half, last_half = items[:middle], items[middle:]
