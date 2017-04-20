@@ -23,7 +23,7 @@ class BinarySearch:
         return self._binary_search(item, item_index, target_list, 0)
 
     def _get_target_portion(self, index):
-        # Split the created_list into 5 portion and return the one that has the item
+        # Split the created_list into 5 portions and return the one that has the item
         percentile_step = len(self.created_list) / 5
         percentile_1, percentile_2 = percentile_step, percentile_step*2
         percentile_3, percentile_4 = percentile_step*3, percentile_step*4
