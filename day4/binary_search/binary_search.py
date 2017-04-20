@@ -18,7 +18,14 @@ class BinarySearch:
         return self._binary_search(search_item, target_list, 0)
 
     def _get_target_list(self, search_item):
-        # Split the created_list into 5 portions and return the one that has the item
+        """
+        This method divides the self.created_list into 5 portions/percentiles. Then uses the search_item to calculate
+         the portion/percentile the it belongs to. The calculated portion/percentile is then used to determine which
+         slice of self.created_list to return for search.
+
+        :param search_item:
+        :return: slice of self.created_list that contains the search_item
+        """
         percentiles = 5
         percentile_step = len(self.created_list) / percentiles
         percentile_limit_1, percentile_limit_2 = percentile_step, percentile_step * 2
@@ -52,5 +59,3 @@ class BinarySearch:
 
     def __getitem__(self, index):
         return self.created_list[index]
-
-
