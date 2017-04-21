@@ -2,16 +2,11 @@ class BinarySearch:
     def __init__(self, a, b):
         self.list_size = a
         self.step = b
-        self.generated_list = self._generate_list()
+        self.generated_list = range(self.step, (self.list_size * self.step) + 1, self.step)
         self.length = len(self.generated_list)
 
-    def _generate_list(self):
-        result = []
-        value = self.step
-        while len(result) < self.list_size:
-            result.append(value)
-            value += self.step
-        return result
+    def __getitem__(self, index):
+        return self.generated_list[index]
 
     def search(self, search_item):
         target_list = self._get_target_list(search_item)
@@ -56,6 +51,3 @@ class BinarySearch:
         valid_half = first_half if search_item <= first_half[len(first_half) - 1] else last_half
 
         return self._binary_search(search_item, valid_half, loops + 1)
-
-    def __getitem__(self, index):
-        return self.generated_list[index]
